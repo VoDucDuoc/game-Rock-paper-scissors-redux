@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -35,4 +36,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@font-face{
+  font-family: my-Font;
+  src: url(./font/Pony.ttf);
+}
+h1, h2, span, button{
+  font-family: my-Font;
 }

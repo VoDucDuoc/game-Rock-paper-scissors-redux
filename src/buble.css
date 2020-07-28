@@ -1,10 +1,15 @@
 .speech-bubble {
-	position: relative;
+	position: absolute;
 	background: #45D994;
 	border-radius: .4em;
-	
+	padding: 5px;
+	top: 7%;
+	left: 17%;
 }
-
+.bubble-computer{
+	left: unset;
+	right: 15%;
+}
 .speech-bubble:after {
 	content: '';
 	position: absolute;
@@ -18,4 +23,41 @@
 	border-left: 0;
 	margin-left: -17.5px;
 	margin-bottom: -35px;
+}
+.playComponent{
+	height: 100%;
+	position: relative;
+}
+.player, .computer{
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	top: 15%;
+	left: 12%;
+}
+.computer{
+	left: unset;
+	right: 12%;
+}
+.resultComponent{
+	position: absolute;
+	top: 10%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.resultComponent h1, .resultComponent span{
+	color: #ffa500;
+}
+.resultComponent h2{
+	color: #6bed70;
+}
+.buabaokeo{
+	position: absolute;
+	top: 35%;
+	left: 11%;
+}
+.keobuabaoChoosen{
+	position: absolute;
+	top: 7%;
+	left: 15%;
 }
