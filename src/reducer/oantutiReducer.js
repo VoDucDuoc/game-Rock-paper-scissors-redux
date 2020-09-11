@@ -1,4 +1,4 @@
-import { CHOOSE, PLAY } from "../constant/oantutiConstant";
+import { CHOOSE, PLAY, CHECKRESULT } from "../constant/oantutiConstant";
 
 const initialState = {
   arrImgInState: [
@@ -24,11 +24,17 @@ const oantutiReducer = (state = initialState, action) => {
           Math.floor(Math.random() * state.arrImgInState.length)
         ],
       ];
-
+      return {
+        ...state,
+        imgShowRandomInState: imgShowRandomInStateNew,
+      };
+    }
+    case CHECKRESULT:{
       let valueRandom = "";
       let valueChoose = [state.imgShowInState];
       let resultNew = state.result;
       let winningNew = state.winning;
+      let imgShowRandomInStateNew = state.imgShowRandomInState;
       state.imgShowInState.map((item, index) => {
         return Object.values(item).map((value, indexx) => {
           return (valueChoose = value);
@@ -71,7 +77,6 @@ const oantutiReducer = (state = initialState, action) => {
       return {
         ...state,
         winning: winningNew,
-        imgShowRandomInState: imgShowRandomInStateNew,
         playClick: ++state.playClick,
         result: resultNew,
       };

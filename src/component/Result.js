@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { playAction } from "../action/oantutiAction";
+import { playAction, checkResult } from "../action/oantutiAction";
 
 function Result(props) {
   let { result, winning, playClick } = props;
@@ -15,6 +15,8 @@ function Result(props) {
         return <h1>DRAW</h1>;
     }
   };
+  
+  
   return (
     <div className="resultComponent">
       <div className="text-nowrap">{renderResult()}</div>
@@ -32,7 +34,18 @@ function Result(props) {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    play: () => dispatch(playAction()),
+    play: () => {
+      let count = 0;
+      let randomInterval = setInterval(()=>{
+        dispatch(playAction());
+        count ++;
+        if(count >=15){
+          clearInterval(randomInterval)
+          dispatch(checkResult());
+        }
+      }, 100)
+     
+    },
   };
 };
 export default connect(null, mapDispatchToProps)(Result);
